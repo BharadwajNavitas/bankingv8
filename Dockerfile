@@ -5,7 +5,6 @@ RUN apt-get update -yq \
     && apt-get install nodejs -yq
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 RUN apt-get update -yq \
