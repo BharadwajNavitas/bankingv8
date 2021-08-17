@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'On Prem Self Hosted Service'
+  vmImage: 'Windows Latest'
 
 variables:
   solution: '**/*.sln'
