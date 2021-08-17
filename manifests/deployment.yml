@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: bharadwajnavitasbankingv 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bharadwajnavitasbankingv
+  template:
+    metadata:
+      labels:
+        app: bharadwajnavitasbankingv 
+    spec:
+      containers:
+        - name: bharadwajnavitasbankingv 
+          image: nttdatainternkubernetesregistry.azurecr.io/bharadwajnavitasbankingv
+          ports:
+          - containerPort: 5000
