@@ -1,0 +1,65 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "docker-build",
+			"label": "docker-build: debug",
+			"dependsOn": [
+				"build"
+			],
+			"dockerBuild": {
+				"tag": "bankingapp:dev",
+				"target": "base",
+				"dockerfile": "${workspaceFolder}/WDT2020-a3/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/WDT2020-a3/WDT2020-a3.csproj"
+			}
+		},
+		{
+			"type": "docker-build",
+			"label": "docker-build: release",
+			"dependsOn": [
+				"build"
+			],
+			"dockerBuild": {
+				"tag": "bankingapp:latest",
+				"dockerfile": "${workspaceFolder}/WDT2020-a3/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/WDT2020-a3/WDT2020-a3.csproj"
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug",
+			"dependsOn": [
+				"docker-build: debug"
+			],
+			"dockerRun": {
+				"os": "Windows"
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/WDT2020-a3/WDT2020-a3.csproj",
+				"enableDebugging": true
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: release",
+			"dependsOn": [
+				"docker-build: release"
+			],
+			"dockerRun": {
+				"os": "Windows"
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/WDT2020-a3/WDT2020-a3.csproj"
+			}
+		}
+	]
+}
