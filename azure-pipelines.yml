@@ -7,6 +7,7 @@ trigger:
 - main
 
 pool:
+  name: On Prem Self Hosted Service
   vmImage: 'Windows Latest'
 
 variables:
