@@ -16,4 +16,4 @@ spec:
         - name: bharadwajnavitasbankingv 
           image: nttdatainternkubernetesregistry.azurecr.io/bharadwajnavitasbankingv
           ports:
-          - containerPort: 5000
+          - containerPort: 80
