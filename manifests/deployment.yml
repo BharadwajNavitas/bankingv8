@@ -4,15 +4,6 @@ metadata:
   name: bharadwajnavitasbankingv 
 spec:
   replicas: 1
-  progressDeadlineSeconds: 120
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 1
-  selector:
-    matchLabels:
-      app: bharadwajnavitasbankingv
   template:
     metadata:
       labels:
@@ -23,7 +14,15 @@ spec:
           image: nttdatainternkubernetesregistry.azurecr.io/bharadwajnavitasbankingv
           ports:
           - containerPort: 80
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 80
+apiVersion : v1
+kind: Service
+metadata:
+  name: bharadwajnavitasbankingv
+spec:
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: 80
+  selector:
+    app: bharadwajnavitasbankingv
+  type: LoadBalancer
