@@ -40,8 +40,8 @@ namespace WDT2020_a3.Controllers
              ******************************************************************************/
 
             var securityKey = "long_ass_security_key_2019_02_07$smesk.in";
-            var userName = "username";
-            var password = "password";
+            var userName = "admin";
+            var password = "admin123";
 
 
             /*HIDDEN KEYS MODE
@@ -57,8 +57,8 @@ namespace WDT2020_a3.Controllers
             //username = username , password = password
 
             //If username and pasword does not match
-            if (!(_loginDetails.UserName.Equals(userName)
-                && _loginDetails.Password.Equals(password)))
+            if (!(model.UserName.Equals(userName)
+                && model.Password.Equals(password)))
             {
                 return BadRequest(new { message = "Login details given were incorrect" });
             }
