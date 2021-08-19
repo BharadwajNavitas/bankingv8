@@ -29,7 +29,6 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name: 'On Prem Self Hosted Service'
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
@@ -53,7 +52,6 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     pool:
-      name: 'On Prem Self Hosted Service'
       vmImage: $(vmImageName)
     environment: 'BharadwajNavitasbankingv8-2106.default'
     strategy:
