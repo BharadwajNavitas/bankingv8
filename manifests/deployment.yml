@@ -4,6 +4,8 @@ metadata:
   name: bharadwajnavitasbankingv 
 spec:
   replicas: 1
+  selector:
+    app: bharadwajnavitasbankingv
   template:
     metadata:
       labels:
