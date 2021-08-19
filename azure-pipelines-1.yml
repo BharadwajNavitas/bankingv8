@@ -73,7 +73,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'nttdata-intern-kubernetes-default'
+              kubernetesServiceConnection: 'nttdata-kubernetes-service-connection'
               namespace: 'default'
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
